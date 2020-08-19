@@ -1,0 +1,707 @@
+title = "Demonstration"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\News\Models\News"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "news"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+<style>
+	.home-block{
+		display: flex;
+    justify-content: center;
+	}
+</style>
+
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+<head>
+<!-- Basic Page Needs -->
+<base href="http://old.niito.kz/" />
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<title>Главная - Научно-исследовательский институт травматологии и ортопедии</title> 
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link href="assets/images/common/favicon.ico" rel="shortcut icon">
+
+<!--[if lt IE 9]>
+	<script src="assets/javascript/html5shiv.js"></script>
+	<script src="assets/javascript/respond.min.js"></script>
+<![endif]-->
+<link rel="canonical" href="http://niito.kz/"/>
+<link rel="next" href="http://niito.kz/?page=2"/>
+</head>
+<body>
+    
+
+
+    	<!-- Slider -->
+	<div class="tp-banner-container">
+		<div class="tp-banner" >
+			<ul>
+				<li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-saveperformance="off">
+					<img src="assets/images/pages/img_slider03.jpg"  alt="slider_1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+					<div class="tp-caption 2 sft tp-resizeme" 
+						data-x="center" data-hoffset="-240" 
+						data-y="center" data-voffset="-99" 
+						data-speed="300" 
+						data-start="500" 
+						data-easing="Power3.easeInOut" 
+						data-splitin="none" 
+						data-splitout="none" 
+						data-elementdelay="0.1" 
+						data-endelementdelay="0.1" 
+						data-endspeed="300">
+						<h1 class="s">Мы возвращаем вам свободу <br />движения и жизнь без боли</h1>
+					</div>
+					<!-- LAYER NR. 2 -->
+					<div class="tp-caption text1 sft tp-resizeme" 
+						data-x="center" data-hoffset="-235" 
+						data-y="center" data-voffset="6" 
+						data-speed="300" 
+						data-start="800" 
+						data-easing="Power3.easeInOut" 
+						data-splitin="none" 
+						data-splitout="none" 
+						data-elementdelay="0.1" 
+						data-endelementdelay="0.1" 
+						data-endspeed="300"><span class="s">РГП Научно-исследовательский институт травматологии и ортопедии</span> 
+					</div>
+					<div class="tp-caption text2 sft tp-resizeme" 
+						data-x="center" data-hoffset="-282" 
+						data-y="center" data-voffset="65" 
+						data-speed="300" 
+						data-start="800" 
+						data-easing="Power3.easeInOut" 
+						data-splitin="none" 
+						data-splitout="none" 
+						data-elementdelay="0.1" 
+						data-endelementdelay="0.1" 
+						data-endspeed="300"><span style="color:#2E5797; font-size:18px;" class="s">Создание НИИТО стало важной вехой в развитии здравоохранения <br />страны и улучшении медицинского обслуживания населения</span> 
+					</div>
+					
+						
+						
+
+						
+						
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+   
+	
+	    <section class="more-info">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+				    	<style>
+				            .btn-primary {
+                                color: #fff;
+                                background-color: #2e5797;
+                                border-color: #2e5797;
+                                border-radius: 3px;
+                                padding: 15px 30px 12px;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-weight: 700;
+                                margin-top: 20px;
+                            }
+                            
+                            .btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+                                color: #fff;
+                                background-color: #133974;
+                                border-color: #133974;
+                                font-size: 16px;
+                                line-height: 24px;
+                                font-weight: 700;
+                            }
+                        </style>
+                        
+                        <a href="blog-direktora" class="btn btn-primary btn-lg btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+															            Блог директора1
+															        </a>
+                        
+
+				</div>
+				<div class="col-sm-4">
+				    
+				</div>
+				<div class="col-sm-5">
+					<div class="subscribe">
+					    <form  class="subscribe-form" action="rezultatyi-poiska" method="get">
+	<label>
+
+	<input type="text" id="emailsubscribe" name="search" placeholder="Поиск информации..." id="search" value="" data-source='[  ]'>
+	</label>
+	    <input type="hidden" name="id" value="125" />
+		<input type="submit" class="submit" value="&nbsp;&nbsp;&nbsp;&nbsp;Найти&nbsp;&nbsp;&nbsp;&nbsp;">
+</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	
+    
+<!--     
+	<section class="more-info" style="background-color: #fff;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<p style="font-size: 17px; color:#6F6F6F; padding: 30px 0 5px 0;">&nbsp;&nbsp;&nbsp;<strong>Миссия:</strong> Усовершенствование и дальнейшее развитие травматолого-ортопедической помощи населению на основе передовой мировой научной, клинической и образовательной практики</p>
+					<p style="font-size: 17px; color:#6F6F6F; padding: 5px 0 10px 0;">&nbsp;&nbsp;&nbsp;<strong>Видение:</strong> Интеграция во всемирное ортопедическое сообщество в соответствии с международными стандартами в области медицинской науки и образования, направленных на снижение смертности и инвалидности от травм и их последствий</p>
+			
+				<div class="box-list">
+						<ul class="icon-list" style="font-size: 14px;">
+							<li><a href="assets/files/1/policy_quality.pdf
+							
+							" 
+							target="_blank"> Политика и цели в области качества</a></li>
+						</ul>
+					</div>
+			
+				
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<div class="container">
+		<div class="row">
+			<div class="home-block">
+	
+<a href="http://niito.kz/niito1.png" target="_blank"><img style="float: right;" src="niito1.png" alt="" width="450" /></a>
+</div>
+
+</div>
+</div>
+	</br>
+	<!-- <section class="more-info more-info-f" style="padding: 10px 0px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text">
+						<h4 class="title center" style="font-size: 21px; color:#fff;"><i class="ion-checkmark-circled"></i> <a style="color:#fff;"href="naczionalnyij-koordinator-respubliki-kazaxstan-desyatiletie-dejstvij-za-bezopasnost-dorozhnogo-dvizheniya/">Национальный координатор РК Десятилетие действий за безопасность дорожного движения</a></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+		<section class="more-info more-info-f2" style="padding: 10px 0px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text">
+						<h4 class="title center" style="font-size: 21px; color:#fff;"><i class="ion-checkmark-circled"></i> <a style="color:#fff;"href="perechen-dokumentov-dlya-predvaritelnogo-otbora-v-rezidenturu">Информация для поступающих в резидетуру НИИТО</a></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> 
+
+	<section class="more-info more-info-f3" style="padding: 10px 0px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="text">
+						<h4 class="title center" style="font-size: 21px; color:#fff;"><i class="ion-checkmark-circled"></i> <a style="color:#fff;"href="konferenczii">Международная конференция памяти академика Н.Д.Батпенова, 28-30 сентября 2020г., Обучающий курс 28 сентября-2 октября 2020 г.</a></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+</section>
+	<!-- News-->
+	<section class="services-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="col-sm-12"><h2 class="title"><a href="novosti/
+					 ">Новости</a></h2></div>
+					<div class="col-sm-12">
+																				
+    {% for record in records %}
+						<article class="post clearfix">
+							<div class="media">
+								<p class="image">
+									<img src="assets/images/pages/img_lasted_post01.jpg" alt="image" style="height:65px; width:60px;">
+								</p>
+
+								<p class="date">{{ record.date }}</p>
+							</div><!-- /.media -->
+							
+	
+							
+							
+							
+							<h2 class="title-post">
+								<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                                {{ record.title }}</a>
+							</h2><!-- /.title-post -->
+							<div class="entry-post">
+								<p>{{ record.desc }}</p>
+							</div><!-- /.entry-post -->
+							<div class="readmore">
+								<p> <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                                Подробнее</a>
+								
+								</p>
+								
+								
+								
+		
+
+
+							
+							
+							
+								
+							</div>
+						</article>
+						        
+    {% else %}
+        <li class="no-data">{{ noRecordsMessage }}</li>
+    {% endfor %}
+					</div>
+					
+
+				</div>
+				
+				<div class="col-sm-7">
+							<div class="accordion-box">
+								<h2 class="title "><a href="otdeleniya-kliniki/">Отделения клиники </a></h2>
+								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading1">
+											<h4 class="panel-title st">
+												<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="false" aria-controls="collapse1" class="collapsed">
+												<i class="ion-medkit"></i> Отделения ортопедии 
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading1" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="box-list">
+															<ul class="icon-list" style="font-size: 14px;">
+																<li>
+																    <a href="otdelenie-ortopedii-1">
+																        Отделение ортопедии № 1
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-ortopedii-2">
+																        Отделение ортопедии № 2
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-ortopedii-3-endoprotezirovanie-1">
+																        Отделение ортопедии № 3 (эндопротезирование № 1)
+																    </a>
+																</li>
+															    <li>
+															        <a href="otdelenie-ortopedii-4-endoprotezirovanie-2">
+															            Отделение ортопедии № 4 (эндопротезирование № 2)
+															        </a>
+															    </li>
+															    <li>
+															        <a href="otdelenie-ortopedii-5">
+															            Отделение ортопедии № 5
+															        </a>
+															    </li>
+																<li>
+																    <a href="otdelenie-ortopedii-6-posledstviya-endoprotezirovaniya">
+																        Отделение ортопедии № 6
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-ortopedii-7-endoprotezirovanie-3">
+																        Отделение ортопедии № 7 (эндопротезирование № 3)
+																    </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading2">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+												<i class="ion-medkit"></i> Отделения травматологии
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="box-list">
+															<ul class="icon-list" style="font-size: 14px;">
+																<li>
+																    <a href="otdelenie-travmatologii-1">
+																        Отделение травматологии № 1
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-travmatologii-2">
+																        Отделение травматологии № 2
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-travmatologii-3-mikroxirurgiya-i-travma-kisti">
+																        Отделение травматологии № 3 (микрохирургия и травма кисти)
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-travmatologii-4-gnojnaya-travmatologiya">
+																        Отделение травматологии № 4 (гнойная травматология)
+																    </a>
+																</li>
+																<li>
+																    <a href="otdelenie-travmatologii-5">
+																        Отделение травматологии № 5
+																    </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading4">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+												<i class="ion-medkit"></i> Артрологии
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Специализация: помощь больным с ревматоидным артритом, остеоартрозом 
+Технологии и методики: комплекс высокоспециализированной медицинской помощи
+                                                    <br><a href="otdelenie-artrologii"><i class="ion-checkmark-circled"></i> Отделение артрологии</a>
+                                                    </div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading5">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+												<i class="ion-medkit"></i> Артроскопии и спортивной травмы
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Специализация: травмы и заболевания крупных суставов <br>Технологии и методики: эндовидеохирургия 
+                                                    <br><a href="otdelenie-artroskopii-i-sportivnoj-travmyi"><i class="ion-checkmark-circled"></i> Отделение артроскопии и спортивной травмы</a>
+                                                    </div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading6">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+												<i class="ion-medkit"></i> Анестезиологии и реанимации
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Специализация: интенсивная терапия при тяжелых травматических повреждениях Технологии и методики: принцип «чистых помещений» 
+													<br><a href="otdelenie-anesteziologii-i-reanimaczii"><i class="ion-checkmark-circled"></i> Отделение анестезиологии и реанимации</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading7">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+												<i class="ion-medkit"></i> Реабилитации
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Специализация: восстановление двигательных функций конечностей <br>Технологии и методики: использование механотерапевтической аппаратуры, физиотерапия, гидрокинезитерапия 
+													<br><a href="otdelenie-reabilitaczii"><i class="ion-checkmark-circled"></i> Отделение реабилитации</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading8">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+												<i class="ion-medkit"></i> Отделение функциональной диагностики и биомеханики
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Специализация: нейрофизиологические исследования <br>Технологии и методики: лабораторный комплекс «МБН-Биомеханика» 
+													<br><a href="otdel-funkczionalnoj-diagnostiki-i-biomexaniki"><i class="ion-checkmark-circled"></i> Отделение функциональной диагностики и биомеханики</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading9">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+												<i class="ion-medkit"></i> Лучевой диагностики
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9" aria-expanded="false">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Отдел лучевой диагностики института оснащен всей необходимой современной аппаратурой для изучения минеральной плотности костной ткани
+													<br><a href="otdel-luchevoj-diagnostiki"><i class="ion-checkmark-circled"></i> Отделение лучевой диагностики</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading10">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+												<i class="ion-medkit"></i> Лаборатория клинической иммунологии
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">В лаборатории разрабатываются алгоритмы иммунодиагностики и иммунокоррекции, позволяющие улучшить состояние пациента и значительно сократить сроки лечения и реабилитации
+													<br><a href="laboratoriya-klinicheskoj-immunologii"><i class="ion-checkmark-circled"></i> Лаборатория клинической иммунологии</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading11">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+												<i class="ion-medkit"></i> Клинико-биохимическое 
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11" aria-expanded="false">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">В составе отделения: общеклиническая, экспресс-лаборатория, клинико-бактериологическая лаборатория, оснащенные гематологическими, биохимическими, электролитными анализаторами и фотометрами.  
+													<br><a href="kliniko-bioximicheskoe-otdelenie"><i class="ion-checkmark-circled"></i> Клинико-биохимическое отделение</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading12">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="false" aria-controls="collapse12">
+												<i class="ion-medkit"></i> Операционный блок
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12" aria-expanded="false">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Операционный блок включает 13 операционных залов, оснащен современными рентгеновскими установками с электронно-оптическим преобразователем... 
+													<br><a href="operaczionnyij-blok"><i class="ion-checkmark-circled"></i> Операционный блок</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading13">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="false" aria-controls="collapse13">
+												<i class="ion-medkit"></i> Приемно-диагностическое
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">В приемно-диагностическом отделении круглосуточно осуществляется оказание экстренной помощи и госпитализация больных с различными видами травм.
+													<br><a href="priemno-diagnosticheskoe-otdelenie"><i class="ion-checkmark-circled"></i> Приемно-диагностическое отделение</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading14">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse14" aria-expanded="false" aria-controls="collapse14">
+												<i class="ion-medkit"></i> Травматологический пункт
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading14" aria-expanded="false">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Отделение оснащено всем необходимым, включая современные иммобилизирующие бинты «Скотчкаст», транспортные шины и т. д.  
+													<br><a href="travmatologicheskij-punkt"><i class="ion-checkmark-circled"></i> Травматологический пункт</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="panel panel-default">
+										<div class="panel-heading" role="tab" id="heading15">
+											<h4 class="panel-title st">
+												<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="false" aria-controls="collapse15">
+												<i class="ion-medkit"></i> Консультативно-диагностическое отделение
+												<span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+												</a>
+											</h4>
+										</div>
+										<div id="collapse15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading15" aria-expanded="false" style="height: 0px;">
+											<div class="panel-body">
+												<div class="row">
+													<div class="col-sm-12">Консультативно-диагностическое отделение оказывает консультативную помощь по нескольким специальностям, в том числе травматологии, ортопедии, комбустиологии, нейрохирургии, вертебрологии, хирургии, ревматологии, микрохирургии, неврологии и другим.
+													<br><a href="konsultativno-diagnostich-otdelenie"><i class="ion-checkmark-circled"></i> Консультативно-диагностическое отделение</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+	
+								</div>
+							</div>
+				</div>
+						
+						
+			</div>
+		</div>
+	</section>
+	
+	<!-- Testimonial -->
+	<section class="testimonial-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="wrapper">
+						<div class="testimonial" data-items="6" data-itemsdesktop="6" data-itemsdesktopsmall="2" data-itemstablet="2" data-itemsmobile="2" data-slidespeed="1" data-autoplay="true" data-nav="true" data-pagination="true">
+							<div class="item"><p class="image tr"><a href="http://expo2017astana.com" target="_blank"><img src="assets/images/niito/nlogo1.png" alt="EXPO-2017"></a></p></div>
+							<div class="item"><p class="image tr"><a href="http://www.akorda.kz" target="_blank"><img src="assets/images/niito/nlogo2.png" alt="Официальный сайт президента Республики Казахстан"></a></p></div>
+							<div class="item"><p class="image tr"><a href="http://astana.gov.kz" target="_blank"><img src="assets/images/niito/nlogo3.png" alt="Акимат города Астаны"></a></p></div>
+							<div class="item"><p class="image tr"><a href="http://bg.eisz.kz" target="_blank"><img src="assets/images/niito/nlogo4.png" alt="Портал Бюро госпитализации"></a></p></div>
+							<div class="item"><p class="image tr"><a href="http://www.government.kz" target="_blank"><img src="assets/images/niito/nlogo5.png" alt="Правительство РК"></a></p></div>
+							<div class="item"><p class="image tr"><a href="http://www.mz.gov.kz/" target="_blank"><img src="assets/images/niito/nlogo6.png" alt="Министерство здравоохранения Республики Казахстан"></a></p></div>
+							<div class="item"><p class="image tr"><a href="https://strategy2050.kz/" target="_blank"><img src="assets/images/niito/nlogo7.png" alt="Стратегия 2050"></a></p></div>
+						    <div class="item"><p class="image tr"><a href="http://densaulyk.astana.kz/" target="_blank"><img src="assets/images/niito/nlogo8.png" alt="Управление здравоохранения города Астана"></a></p></div>
+						    <div class="item"><p class="image tr"><a href="http://adilet.zan.kz/rus/docs/U1600000176" target="_blank"><img src="assets/images/niito/nlogo9.png" alt="Государственная программа Денсаулык"></a></p></div>
+						     <div class="item"><p class="image tr"><a href="http://tilalemi.kz/article/1793" target="_blank"><img src="assets/images/niito/nlogo14.png" alt="#"></a></p></div>
+						
+							<div class="item">
+							    <p class="image tr">
+							        <a href="http://fms.kz/" target="_blank">
+							            <img src="assets/images/niito/nlogo12_ru.png" alt="Фонд социального медицинского страхования">
+            						    
+            						    
+							        </a>
+							    </p>
+							</div>
+                            <div class="item"><p class="image tr"><a href="http://www.kmtlc.kz/ " target="_blank"><img src="assets/images/niito/nlogo11.png" alt="АО «КазМедТех»"></a></p></div>
+                            <div class="item">
+							    <p class="image tr">
+							        <a href="http://www.rcrz.kz/index.php/ru/" target="_blank">
+							            <img src="assets/images/niito/nlogo13_ru.png" alt="Республиканский центр развития здравоохранения">
+            						    
+            						    
+							        </a>
+							    </p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

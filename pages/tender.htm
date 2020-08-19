@@ -1,0 +1,86 @@
+title = "Тендер"
+url = "/tender"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Tender\Models\Tender"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+<section class="breadcrumb-wrap">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Тендер</h1>
+					<ul class="breadcrumb">
+					   
+					   <ul class="breadcrumb"><li><a href="zakupki/">Закупки</a></li>
+<li><a href="zakup-imn-i-ls/">Закуп ИМН и ЛС</a></li>
+<li class="active">Тендер</li></ul>
+					    
+					    
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="page-wrap page-service">
+		<div class="container">
+			<div class="row">
+				<main class="main-content">
+					<div class="content">
+						<article>
+						    <div class="clearfix">
+        					    
+                                <hr>
+                                <h3>Тендер 2020</h3>
+                                <hr>
+        					   
+
+
+
+    {% for record in records %}
+<div class="tickets-row">
+    <p>
+    Дата публикации: <strong>{{ record.date }}</strong>
+    &nbsp;&nbsp;
+    
+	</p><p>
+	</p><h4 style="color: #2e5797;">{{ record.title }}</h4>
+	<p>
+<a href=" {{ record.link }} ">{{ record.title }}</a> 
+
+
+</p>
+<p>
+
+
+</p>
+</div>
+
+ {% endfor %}
+        					   
+				</article>
+					</div>
+				</main>
+			</div>
+		</div>
+	</section>

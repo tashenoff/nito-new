@@ -1,0 +1,49 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>NIITO.KZ</title>
+        <meta name="description" content="{{ this.page.meta_description }}">
+        <meta name="title" content="{{ this.page.meta_title }}">
+        <meta name="author" content="OctoberCMS">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="generator" content="OctoberCMS">
+        <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+        <!-- <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+        <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="{{ 'assets/stylesheets/revolution-slider.css'|theme }}">
+<link rel="stylesheet" type="text/css" href="{{ 'assets/stylesheets/style.css'|theme }}">
+<link rel="stylesheet" type="text/css" href="{{ 'assets/stylesheets/responsive.css' |theme }}">
+<link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
+        {% styles %}
+    </head>
+    <body>
+
+        <!-- Header -->
+        <header id="layout-header">
+            {% partial 'site/header' %}
+        </header>
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% page %}
+        </section>
+
+        <!-- Footer -->
+        <footer id="layout-footer">
+            {% partial 'site/footer' %}
+        </footer>
+
+        <!-- Scripts -->
+        <script type="text/javascript" src="{{ 'assets/javascript/plugins.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/javascript/main.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/javascript/jquery.themepunch.tools.min.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/javascript/jquery.themepunch.revolution.min.js'|theme }}"></script>
+        <script type="text/javascript" src="{{ 'assets/javascript/slider.js'|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+
+    </body>
+</html>
