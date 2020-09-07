@@ -2,7 +2,25 @@ title = "Журнал “Травматология және ортопедия"
 url = "/zhurnal-travmatologiya-zhne-ortopediya"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Jurnal\Models\Jurnal"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -40,141 +58,46 @@ is_hidden = 0
                 </li>
 </ul>
 
+				 
 <ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/Jurnal3_4_41_42_2017.pdf" target="_blank">Травматология және ортопедия № 3-4 (41-42)/2017  <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
+    {% for record in records %}
+        <li>
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+            {% spaceless %}
+            
+
+                 <a href="{{ record.link }}">  {{ record.title }}</a>
+
+                {% if detailsPage %}
+                    </a>
+                {% endif %}
+            {% endspaceless %}
+        </li>
+    {% else %}
+        <li class="no-data">{{ noRecordsMessage }}</li>
+    {% endfor %}
 </ul>
 
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1-2 (39-40)2017 (1).pdf" style="line-height: 1.5em;" target="_blank">Травматология және ортопедия № 1-2 (39-40)/2017 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
+{% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
 
 
 
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/3-4 (37-38)2016.pdf" style="line-height: 1.5em;" target="_blank">Травматология және ортопедия № 3-4 (37-38)/2016 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1-2 (35-36)2016.pdf" style="line-height: 1.5em;" target="_blank">Травматология және ортопедия № 1-2 (35-36)/2016 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/3-4 (33-34)2015.pdf" style="line-height: 1.5em;" target="_blank">Травматология және ортопедия № 3-4 (33-34)/2015 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/_1-2.compressed.pdf" style="line-height: 1.5em;" target="_blank">Травматология және ортопедия № 1-2(31-32)/2015 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/contens3-4_2014.pdf" target="_blank">Травматология және ортопедия № 3-4 (29-30)/2014 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/tjo1-2_2014.compressed.pdf" target="_blank">Травматология және ортопедия № 1-2 (27-28)/2014 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-		
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1_2_(43_44)_2018.pdf" target="_blank">Травматология және ортопедия № 3-4 (49-50)/2019 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1_2_(43_44)_2018.pdf" target="_blank">Травматология және ортопедия № 1-2 (47-48)/2019 <i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-			
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1_2_(43_44)_2018.pdf" target="_blank">Травматология және ортопедия № 3-4 (45-46)/2018<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1_2_(43_44)_2018.pdf" target="_blank">Травматология және ортопедия № 1-2 (43-44)/2018<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/Jurnal3_4_41_42_2017.pdf" target="_blank">Травматология және ортопедия № 3-4 (41-42)/2017<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1-2%20(39-40)2017%20(1).pdf" target="_blank">Травматология және ортопедия № 1-2 (39-40)/2017<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/3-4%20(37-38)2016.pdf" target="_blank">Травматология және ортопедия № 3-4 (37-38)/2016<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-			
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/1-2%20(35-36)2016.pdf" target="_blank">Травматология және ортопедия № 1-2 (35-36)/2016<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/3-4%20(33-34)2015.pdf" target="_blank">Травматология және ортопедия № 3-4 (33-34)/2015<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/_1-2.compressed.pdf" target="_blank">Травматология және ортопедия № 1-2(31-32)/2015<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/contens3-4_2014.pdf" target="_blank">Травматология және ортопедия № 3-4 (29-30)/2014<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
-
-
-<ul class="icon-list">
-	<li><a href="http://old.niito.kz/assets/files/82/tjo1-2_2014.compressed.pdf" target="_blank">Травматология және ортопедия № 1-2 (27-28)/2014<i style="font-size:17px;" class="ion-document"></i>
-	                </a>
-                </li>
-</ul>
 				</div></div></main>
 			</div>
 		</div>

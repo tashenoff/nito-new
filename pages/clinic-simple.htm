@@ -1,5 +1,5 @@
 title = "clinic-simple"
-url = "/clinic-simple/id:"
+url = "/clinic-simple/:id"
 layout = "default"
 is_hidden = 0
 
@@ -9,20 +9,71 @@ identifierValue = "{{ :id }}"
 modelKeyColumn = "id"
 displayColumn = "title"
 notFoundMessage = "Record not found"
+
+[builderList]
+modelClass = "Alex\Klinika\Models\Klinika"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
-{% component 'builderDetails' %}
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+{% if records.lastPage > 1 %}
+    <ul class="pagination">
+        {% if records.currentPage > 1 %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
+        {% endif %}
+
+        {% for page in 1..records.lastPage %}
+            <li class="{{ records.currentPage == page ? 'active' : null }}">
+                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+            </li>
+        {% endfor %}
+
+        {% if records.lastPage > records.currentPage %}
+            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
+        {% endif %}
+    </ul>
+{% endif %}
+
+
+
+
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    {{ attribute(record, displayColumn) }}
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}
+
+
+
+<div class="results"></div>
 
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1>Отделение травматологии № 1</h1>
+					<h1>{{ record.title }}</h1>
 					<ul class="breadcrumb">
 					   
 					   <ul class="breadcrumb"><li><a href="klinika/">Клиника</a></li>
 <li><a href="otdelenie-travmatologii-1">Отделения клиники</a></li>
-<li class="active">Отделение травматологии № 1</li></ul>
+<li class="active">{{ record.title }}</li></ul>
 					    
 					    
 						
@@ -38,105 +89,89 @@ notFoundMessage = "Record not found"
 	<section class="page-wrap page-service">
 		<div class="container">
 			<div class="row">
-				<main class="main-content">
+				<main class="main-content col-lg-8">
 					<div class="content">
 						<article>
 						    <div class="clearfix">
-							<p><strong style="color: #2e5797;">&nbsp; &nbsp; Специализация:&nbsp;</strong>Нейротравмы и хирургия позвоночника</p>
 
-<p><strong style="color: #2e5797;">&nbsp; &nbsp; Технологии и методики:&nbsp;</strong>Более пятидесяти методик диагностики и лечения</p>
 
-<p><strong style="color: #2e5797;">&nbsp; &nbsp; &nbsp;Коек:&nbsp;</strong>22</p>
+							
+									
+										<p>{{ record.desc_spec | raw }}</p>
+								
+
+
+							<p><strong style="color: #2e5797;">&nbsp; &nbsp; Специализация:&nbsp;</strong>{{ record.spec}}</p>
+
+<p><strong style="color: #2e5797;">&nbsp; &nbsp; Технологии и методики:&nbsp;</strong>{{ record.metodic }}</p>
+
+<p><strong style="color: #2e5797;">&nbsp; &nbsp; &nbsp;Коек:&nbsp;</strong>{{ record.bed }}</p>
+
+
+
+{% for persona in record.persona %}
+
 
 <div class="row" style="padding-top:10px">
 <div class="col-lg-3 col-md-4 col-sm-3 col-xs-4">
-<div class="single-product-img"><img alt="" class="img-thumbnail" src="assets/images/33/20.jpg" style="margin:10px; float:right"></div>
+<div class="single-product-img"><img alt="" class="img-thumbnail" src="{{ persona.photo |media|resize(350, 350) }}" style="margin:10px; float:right"></div>
 </div>
 
 <div class="col-lg-9 col-md-8 col-sm-9 col-xs-8">
 <div class="content">
 <div class="col-title">
-<h2 style="color: #2e5797;">Олжас Бекарисов</h2>
+<h2 style="color: #2e5797;"> {{ persona.name }}</h2>
 
 <hr></div>
 
 <div class="text">
-<p>Заведующий отделением, врач травматолог-ортопед высшей квалификационной категории, кандидат медицинских наук</p>
+<p>{{ persona.spec }}</p>
 </div>
 
 <div class="available-item">
-<h5><strong>Телефон:</strong>+7 (7172) 54-75-24 (вн. 222)</h5>
+<h5><strong>Телефон:</strong>{{ persona.phone }}</h5>
 
-<h5><a href="mailto:info@niito.kz">info@niito.kz </a></h5>
+<h5><a href="mailto:info@niito.kz">{{ persona.mail }} </a></h5>
 </div>
 </div>
 </div>
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12">
-<p>&nbsp; &nbsp; Стажировался в ведущих клиниках России, Турции, Германии, ОАЭ. Имеет более 50 публикаций.</p>
+{% endfor %}
 
-<p>&nbsp;</p>
 
-<p>&nbsp; &nbsp; Отделение оказывает высокоспециализированную помощь при переломах и дегенеративных заболеваниях позвоночника. В рамках ВСМП в отделении проводятся операции по стабилизации позвоночника при травмах и дегенеративных поражениях на шейном, грудном и поясничном отделах позвоночника, вертебропластика тел позвонков при остеопоротических переломах и заболеваниях позвоночника, вентральные вмешательства.</p>
-
-<p>&nbsp; &nbsp; С 2001 года проведено около 1000 операций. Осуществляются все виды остеосинтеза при скелетной травме на фоне травмы позвоночника и головного мозга.
-</p>
-
-<p>&nbsp; &nbsp; За годы работы внедрено более 60 методик диагностики и лечения травм и заболеваний позвоночника: транспедикулярная фиксация, вертебропластика при травмах и заболеваниях позвоночника, транскутанная транспедикулярная фиксация, применение PLIF и TLIF спондилодеза при дегенеративных листезах. Вентральный спондилодез эндокорректорами из никелида титана (пористого и литого) и телескопическими кейджами V-LIFT, сетчатыми кейджами Mesh. Вентральный спондилодез кейджами Solis и пластинами Reflex при травмах шейного отдела позвоночника. Применение гала-аппарата, транскутанная транспедикулярная фиксация с аугментацией, вентральные минидоступы с эндовидеоассистенцией, эндоскопическая трансфораминальная дискэктомия.</p>
-
-<p>&nbsp; &nbsp; Отделение сотрудничает с Новосибирским НИИТО, НИИ нейрохирургии имени академика Н. Н. Бурденко (Москва), профессора А. Л. Поленова (Санкт-Петербург), МАТИ-Медтех (Москва), ЦКБ РАН (Москва), внедряет их разработки в клиническую практику.</p>
-
-<p><strong><em>&nbsp; &nbsp; Научными сотрудниками отделения внедрены две собственных разработки: способ пластики тел позвонков гранулами никелида титана и способ лечения переломов позвоночника виброрезонансной терапией.</em></strong></p>
-
-<p>&nbsp; &nbsp; <ins>Сотрудники отделения:</ins> <strong>М. Байдарбеков</strong>, врач-нейрохирург первой квалификационной категории, аспирант Новосибирского НИИТО,</p>
-
-<p>&nbsp; &nbsp; <strong> А. Шартаев</strong>, врач травматолог-ортопед,</p>
-
-<p>&nbsp; &nbsp; <strong> А. Сулейменов</strong>, врач-нейрохирург первой квалификационной категории.</p>
-
-<p>&nbsp; &nbsp; Возглавляет научную и лечебную работу отделения <strong>Ханат Мухаметжанов</strong>, заведующий отделом политравмы, доктор медицинских наук.</p>
-
-<p>&nbsp; &nbsp; Окончил целевую клиническую ординатуру, аспирантуру, докторантуру в НИИ нейрохирургии имени академика Н. Н. Бурденко РАМН, врач-нейрохирург высшей квалификационной категории. Автор более 500 публикаций, одной монографии и  двух методических рекомендаций, пяти патентов на изобретения. Отличник здравоохранения СССР и РК.</p>
-
-<p>&nbsp;</p>
-</div>
-
-<div class="row" style="padding-top:30px">
-<div class="col-lg-3 col-md-4 col-sm-3 col-xs-4">
-<div class="single-product-img"><img alt="" class="img-thumbnail" src="assets/images/33/21.jpg" style="margin:10px; float:right"></div>
-</div>
-
-<div class="col-lg-9 col-md-8 col-sm-9 col-xs-8">
-<div class="content">
-<div class="col-title">
-<h2 style="color: #2e5797;">Карибаев Буратай Метчебаевич</h2>
-
-<hr></div>
-
-<div class="text">
-<p>Ведущий научный сотрудник</p>
-</div>
-
-<div class="available-item">&nbsp;</div>
-</div>
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12">
-<p>&nbsp; &nbsp; Окончил клиническую ординатуру на кафедре нейрохирургии Алматинского государственного института усовершенствования врачей, кандидат медицинских наук, врач-нейрохирург высшей квалификационной категории.</p>
-
-<p>&nbsp; &nbsp; Автор более 200 публикаций, одной методической рекомендации, трех патентов на изобретения.</p>
-
-<p>&nbsp; &nbsp; Награжден нагрудным знаком «Қазақстан Республикасы денсаулық сақтау ісінің үздігіне», почетными грамотами МЗ РК, НИИТО.</p>
-</div>
-</div>
 
 						</div></article>
 					</div>
 				</main>
 				
-				<aside class="sidebar">
+				<aside class="sidebar col-lg-4">
                     <div class="sidebar-nav">
+
+
+
+						<ul class="record-list">
+							{% for record in records %}
+								<li>
+									{# Use spaceless tag to remove spaces inside the A tag. #}
+									{% spaceless %}
+										{% if detailsPage %}
+											<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+										{% endif %}
+						
+										{{ attribute(record, displayColumn) }}
+						
+										{% if detailsPage %}
+											</a>
+										{% endif %}
+									{% endspaceless %}
+								</li>
+							{% else %}
+								<li class="no-data">{{ noRecordsMessage }}</li>
+							{% endfor %}
+						</ul>
+
+
 						<ul>
 						    <li class="first active"><a href="otdelenie-travmatologii-1">Отделение травматологии № 1</a></li><li><a href="otdelenie-travmatologii-2">Отделение травматологии № 2</a></li><li><a href="otdelenie-travmatologii-3-mikroxirurgiya-i-travma-kisti">Отделение травматологии № 3 (микрохирургия и травма кисти)</a></li><li><a href="otdelenie-travmatologii-4-gnojnaya-travmatologiya">Отделение травматологии № 4 (гнойная травматология)</a></li><li><a href="otdelenie-travmatologii-5">Отделение травматологии № 5</a></li><li><a href="otdelenie-ortopedii-1">Отделение ортопедии № 1</a></li><li><a href="otdelenie-ortopedii-2">Отделение ортопедии № 2</a></li><li><a href="otdelenie-ortopedii-3-endoprotezirovanie-1">Отделение ортопедии № 3 (эндопротезирование № 1)</a></li><li><a href="otdelenie-ortopedii-4-endoprotezirovanie-2">Отделение ортопедии № 4  (эндопротезирование № 2)</a></li><li><a href="otdelenie-ortopedii-5">Отделение ортопедии № 5</a></li><li><a href="otdelenie-ortopedii-6-posledstviya-endoprotezirovaniya">Отделение ортопедии № 6</a></li><li><a href="otdelenie-ortopedii-7-endoprotezirovanie-3">Отделение ортопедии № 7 (эндопротезирование № 3)</a></li><li><a href="otdelenie-artrologii">Отделение артрологии</a></li><li><a href="otdelenie-artroskopii-i-sportivnoj-travmyi">Отделение артроскопии и спортивной травмы</a></li><li><a href="otdelenie-anesteziologii-i-reanimaczii">Отделение анестезиологии и реанимации</a></li><li><a href="otdelenie-reabilitaczii">Отделение реабилитации</a></li><li><a href="otdel-funkczionalnoj-diagnostiki-i-biomexaniki">Отдел функциональной диагностики и биомеханики</a></li><li><a href="otdel-luchevoj-diagnostiki">Отдел лучевой диагностики</a></li><li><a href="laboratoriya-klinicheskoj-immunologii">Лаборатория клинической иммунологии</a></li><li><a href="kliniko-bioximicheskoe-otdelenie">Клинико-биохимическое отделение</a></li><li><a href="operaczionnyij-blok">Операционный блок</a></li><li><a href="priemno-diagnosticheskoe-otdelenie">Приемно-диагностическое отделение</a></li><li><a href="travmatologicheskij-punkt">Травматологический пункт</a></li><li class="last"><a href="konsultativno-diagnostich-otdelenie">Консультативно-диагностическое отделение</a></li>
 						</ul>
