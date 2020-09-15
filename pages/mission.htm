@@ -2,7 +2,26 @@ title = "Миссия"
 url = "/missiya"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Missia\Models\Missia"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "text"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -42,182 +61,13 @@ is_hidden = 0
 					<div class="content">
 					    
 		
-
 <p>
 
-	<h3>Миссия:</h3> Усовершенствование и дальнейшее развитие травматолого-ортопедической помощи населению на основе передовой мировой научной, клинической и образовательной практики.
-
-<h3>Видение:</h3> Интеграция во всемирное ортопедическое сообщество в соответствии с международными стандартами в области медицинской науки и образования, направленных на снижение смертности и инвалидности от травм и их последствий.
-
-<h3>Цель:</h3> Оказание квалифицированной, специализированной и высокоспециализированной медицинской помощи в области травматологии и ортопедии, научная, научно-техническая, опытно-конструкторская деятельность по травматологии и ортопедии, а также подготовка медицинских кадров в области травматологии и ортопедии.
+   {% for record in records %}
+   {{ record.text | raw}}
+   {% endfor %}
 </p>
 
-
-<section class="page-contact02">
-	<div class="container">
-		<div class="row">
-			<main class="main-content">
-				<div class="content">
-					
-					
-<div class="box-list">
-		<h3 style="color: #2e5797;">Файлы корпоративного управления:</h3>
-		<hr>
-		<ul class="icon-list">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-sm-6 col-xs-12">
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/prikaz _114_ot_ 31_03_2017.pdf" target="_blank">
-					Положение НС НИИТО Приказ МЗ  114 от 31.03.2017 <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/prikaz_385_05_06_2017.pdf" target="_blank">
-					Приказ МЗСР 385 от 05.06.2017 дополн. в НС НИИТО <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/biografii_NS_2018.doc" target="_blank">
-					Состав и краткие биографии членов наблюдательного совета РГП «НИИТО» МЗСР РК (НС НИИТО) и информация о секретаре НС НИИТО <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Стратегический план НИИТО.pdf" target="_blank">
-					Стратегический план РГП на ПХВ «Научно исследовательский институт травматологии и ортопедии" МЗ РК 2017-2021 годы <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/plan_NS_2018.doc" target="_blank">
-					План Работы Наблюдательного совета Республиканского государственного предприятия на праве хозяйственного ведения  
-					<br>«Научно-исследовательский институт травматологии и ортопедии»
-					<br>Министерства здравоохранения Республики Казахстан  на 2018 год <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-		  
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ № 01-01-02-438-Ө от 18.11.2016г.Об утверждении корпоративных внутренних документов НИИТО.pdf" target="_blank">
-					Приказ № 01-01-02-438-Ө от 18.11.2016г.Об утверждении корпоративных внутренних документов НИИТО <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			 <li>
-				<a href="http://old.niito.kz/assets/files/8/Кадровая политика для РГП НИИТО.pdf" target="_blank">
-					Кадровая политика РГП «Научно-исследовательский институт травматологии и ортопедии» МЗСР РК <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Кодекс деловой этики для  РГП НИИТО.pdf" target="_blank">
-					 Кодекс деловой этики РГП «Научно-исследовательский институт травматологии и ортопедии» МЗСР РК <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Положение об информационной политике для РГП НИИТО.pdf" target="_blank">
-					 Положение об информационной политике РГП «Научно-исследовательский институт травматологии и ортопедии» МЗСР РК <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/oper_plan_2018.pdf" target="_blank">
-					 Операционный план РГП на ПХВ "Научно-исследовательский институт травматологии и ортопедии" МЗ РК на 2018 год <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			 <li>
-				<a href="http://old.niito.kz/assets/files/8/Instrokciaya_sekret.pdf" target="_blank">
-					 Инструкция по обеспечению сохранности коммерческой и служебной тайны РГП «Научно-исследовательский институт травматологии и ортопедии» МЗСР РК <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ О СОСТАВЕ НС НИИТО 18.10.2016_ru.pdf" target="_blank">
-					 Приказ № 876 от 18.10.2016 г О составе наблюдательного совета РГП «Научно-исследовательский институт травматологии и ортопедии» МЗСР РК <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			 
-		</div>
-			<div class="col-md-6 col-sm-6 col-xs-12">
-		  
-		  <li>
-				<a href="http://old.niito.kz/assets/files/8/ПОСТАНОВЛЕНИЕ.pdf" target="_blank">
-					Об утверждении критериев, предъявляемых к  государственным предприятиям на праве хозяйственного ведения, 
-					<br>в которых создаются наблюдательные советы <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			
-			 <li>
-				<a href="http://old.niito.kz/assets/files/8/Приложение.pdf" target="_blank">
-					Критерии, предъявляемые к государственным предприятиям на праве хозяйственного ведения, 
-					в которых создаются наблюдательные советы <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			  
-			
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Объявл конкурс челнов НС НИИТО 04.08.16.pdf" target="_blank">
-					Объявления конкурс членов НС НИИТО от 04.08.2016 г. <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Структура НИИТО, утвержденная 01.08.2016 г.pdf" target="_blank">
-					Структура РГП "НИИ травматологии и ортопедии" Министерства здравоохранения Республики Казахстан <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-				<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ МЗСР РК 676 конкурс в НС НИИТО 20.07.16.pdf" target="_blank">
-					Приказ МЗСР РК 676 конкурс в НС НИИТО 20.07.16 г. <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-				
-			 <li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ МЗСР РК 234 от 28.03.16, изменен. в состав НС НИИТО.pdf" target="_blank">
-					Приказ МЗСР РК 234 от 28.03.16, измененении в составе НС НИИТО <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-		  
-				<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ МНЭ РК 115 от 20.02.15 Правила оценки деят. членов НС и вознагр.pdf" target="_blank">
-					Приказ Министра национальной экономики Республики Казахстан от 20 февраля 2015 года № 115 Об утверждении 
-					Правил оценки деятельности членов наблюдательного совета и определения лимита выплаты вознаграждения членам 
-					наблюдательного совета <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ МНЭ РК 113 от 20.02.2015 Правила создания НС в РГП,конкурса, требования.pdf" target="_blank">
-					Приказ Министра национальной экономики Республики Казахстан от 20 февраля 2015 года № 113 Об утверждении 
-					Правил создания наблюдательного совета в государственных предприятиях на праве хозяйственного ведения, требований, 
-					предъявляемых к лицам, избираемым в состав наблюдательного совета, а также Правил конкурсного отбора членов 
-					наблюдательного совета и досрочного прекращения их полномочий <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-				<li>
-				<a href="http://old.niito.kz/assets/files/8/Приказ МЗ РК 601 от 10.09.2011. Правила созыва и проведения заседаний.pdf" target="_blank">
-					Приказ и.о. Министра здравоохранения Республики Казахстан от 10 сентября 2011 года № 601
-					Об утверждении Положения о наблюдательном совете, Правил созыва и проведения заседаний
-					наблюдательного совета государственного предприятия на праве хозяйственного ведения в области здравоохранения <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			<li>
-				<a href="http://old.niito.kz/assets/files/8/ПП РК 974 от 27.08. 2011 г. о созд НС в НИИТО.pdf" target="_blank">
-					ПП РК 974 от 27.08. 2011 г. о создании НС в НИИТО <i style="font-size:17px;" class="ion-document"></i>
-				</a>
-			</li>
-			</div>
-		</div></div></ul>
-</div>
-					
-		
-					
-				</div>
-			</div></div></main>
-		</div>
-	</div>
-</section>
-					    
 					    
 					 
                         <br> <br>
