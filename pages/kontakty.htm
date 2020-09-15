@@ -2,7 +2,25 @@ title = "Контакты"
 url = "/kontakty"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Kontakt\Models\Kontakt"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "text"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -23,6 +41,7 @@ is_hidden = 0
 		</div>
 	</section>
 	
+	    {% for record in records %}
 	
 	<section class="page-contact02">
 		<div class="container">
@@ -42,21 +61,21 @@ is_hidden = 0
 							<div class="item col-sm-4">
 								<span class="icon-wrap"><i class="ion-ios-home-outline"></i></span>
 								<h4>Адрес</h4>
-								<p>РК, г. Астана, 010000, Пр. Абылай хана, 15А</p>
+								<p>{{ record.adress }}</p>
 							</div>
 							
 							<div class="item col-sm-4">
 								<span class="icon-wrap"><i class="ion-ios-printer-outline"></i></span>
 								<h4>Факс</h4>
-								<p>+7 (7172) 54-77-30  </p>
+								<p>{{ record.fax }} </p>
 							</div>
 							
 							<div class="item col-sm-4">
 								<span class="icon-wrap"><i class="ion-ios-email-outline"></i></span>
 								<h4>E-mail</h4>
 								<p>
-									<a href="mailto:info@niito.kz">info@niito.kz</a></br>
-									<a href="mailto:niitokz@med.mail.kz">niitokz@med.mail.kz</a>
+									<a href="mailto:{{ record.email}}">{{ record.email}}</a></br>
+								
 								
 								
 								</p>
@@ -64,38 +83,9 @@ is_hidden = 0
 						
 						    <div class="col-sm-12"><span class="separator mgt30 mgb30"></span></div>
 						
-    						<div class="col-sm-6 mgb30">	
-								<p>Приемная директора </br>+7 (7172) 54-77 17 </p>
-
-								<p>Заместитель директора по клинической работе </br>+7 (7172) 54-76-56 </p>
-								
-								<p>Заместитель директора по научной работе и стратегии</br> +7 (7172) 54-75-32 </p>
-								
-								<p>Заместитель директора по финансовой и административно-хозяйственной деятельности </br>+7 (7172) 54-76-25 </p>
-								
-								<p>Центр стратегического и регионального развития, мониторинга и анализа </br>+7 (7172) 54-77-24 </p>
-								
-								<p>Отдел государственных закупок </br>+7 (7172) 54-75-54 </p>
-								
-								<p>Отдел развития кадровых ресурсов </br>+7 (7172) 54-75-38 </p>
-								
-								<p>Организационно-методический отдел</br> +7 (7172) 54-77-19</p> 
-    						</div>
-						
-    						<div class="col-sm-6 mgb30">
-								<p>Информация по стационарным больным </br>+7 (7172) 54-75-24 </p> 
-
-								<p>Приемно-диагностическое отделение (приемный покой)</br> +7 (7172) 54-75-49 </p> 
-								
-								<p>Консультативно-диагностическое отделение (запись на прием и консультацию)</br> +7 (7172) 54-77-41 </p> 
-								
-								<p>Бюро госпитализации</br> +7 (7172) 54-77-03, 54-75-51 </p> 
-								
-								<p>Травмпункт </br>+7 (7172) 54-76-68 </p> 
-								
-								<p>Call-центр </br>+7 (7172) 54-76-01 </p> 
-								
-								<p>Телефон доверия (Служба поддержки пациента и внутреннего контроля(аудита)</br> +7 (7172) 54-75-53 </p> 
+    					<p>
+    					{{ record.text | raw }}
+    					</p>
     						</div>
 					
 							<div class="col-sm-5">
@@ -302,3 +292,4 @@ ymaps.ready()
 			</div>
 		</div>
 	</section>
+	{% endfor %}
