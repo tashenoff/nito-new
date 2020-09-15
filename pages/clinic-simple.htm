@@ -9,16 +9,6 @@ identifierValue = "{{ :id }}"
 modelKeyColumn = "id"
 displayColumn = "title"
 notFoundMessage = "Record not found"
-
-[builderList]
-modelClass = "Alex\Klinika\Models\Klinika"
-scope = "-"
-scopeValue = "{{ :scope }}"
-displayColumn = "title"
-noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
-pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -153,21 +143,9 @@ pageNumber = "{{ :page }}"
 						<ul class="record-list">
 							{% for record in records %}
 								<li>
-									{# Use spaceless tag to remove spaces inside the A tag. #}
-									{% spaceless %}
-										{% if detailsPage %}
-											<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-										{% endif %}
-						
-										{{ attribute(record, displayColumn) }}
-						
-										{% if detailsPage %}
-											</a>
-										{% endif %}
-									{% endspaceless %}
+									<a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">{{ record.title }}</a>
 								</li>
-							{% else %}
-								<li class="no-data">{{ noRecordsMessage }}</li>
+									
 							{% endfor %}
 						</ul>
 
