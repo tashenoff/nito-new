@@ -2,7 +2,25 @@ title = "Блог директора"
 url = "/blog-direktora"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Blogd\Models\BlogD"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+  {% for record in records %}
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -30,26 +48,20 @@ is_hidden = 0
 			<div class="row">
 				<main class="main-content" style="height: 1838px;">
 				<br>
-					<div class="content">
-					    <p><strong>&nbsp; &nbsp;&nbsp; &nbsp;Уважаемые посетители, </strong></p>
+					<div class="content col-8">
+					    <p><strong>&nbsp; &nbsp;&nbsp; &nbsp;{{ record.title }} </strong></p>
 
 
 <p>&nbsp;</p>
 
-<p><img alt="" height="200" src="assets/files/1560/IMG_3369.jpg" style="float:right" width="300">&nbsp; &nbsp;&nbsp; &nbsp;Научно-исследовательский институт травматологии и ортопедии в Астане — один из ведущих научных центров в Республике Казахстан. На протяжении 16&nbsp;лет институт активно и неуклонно осуществляет свою главную миссию — возвращает свободу движения и радость жизни тысячам пациентов.</p>
-
-<p>&nbsp; &nbsp;&nbsp; &nbsp;Высокий интеллектуальный и материальный потенциал, целенаправленный эффективный труд, стремление каждого сотрудника к совершенству и профессиональному росту позволяет успешно решать задачу повышения уровня оказания ортопедо-травматологической помощи населению.</p>
-
-<p>&nbsp; &nbsp;&nbsp; &nbsp;Сегодня интернет-ресурсы становятся важным звеном коммуникации. В рамках этой интерактивной площадки Вы можете задавать вопросы, делиться мнениями, озвучивать проблемы.</p>
-
-<p>&nbsp; &nbsp;&nbsp; &nbsp;Уверен, что настоящий блог станет эффективным инструментом для оперативного решения волнующих Вас вопросов в области оказания специализированной и высокоспециализированной экстренной и плановой медицинской помощи в области травматологии и ортопедии.</p>
-
-<p>&nbsp; &nbsp;</p>
+<p>
+{{ record.text | raw}}
+</p>
 
 
 					</div>
 				</main>
-				<aside class="sidebar">
+				<aside class="sidebar col-">
 				    
 				    <div class="widget">
 				        <h3 class="widget-title">Рубрика</h3>

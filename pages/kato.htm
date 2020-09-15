@@ -2,16 +2,35 @@ title = "КАТО"
 url = "/kato"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Kato\Models\Kato"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+  {% for record in records %}
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1>КАТО</h1>
+					<h1>{{ record.title }}</h1>
 					<ul class="breadcrumb">
 					   
-					   <ul class="breadcrumb"><li class="active">КАТО</li></ul>
+					   <ul class="breadcrumb"><li class="active">{{ record.title }}</li></ul>
 					    
 					    
 						
@@ -30,14 +49,12 @@ is_hidden = 0
 			<div class="row">
 				<main class="main-content">
 					<div class="content">
+					<p>{{ record.title }}</p>
 					    
-	<p>В 2012 году по инициативе основателя и первого директора НИИТО профессора Н.Д. Батпенова было создано Республиканское общественное объединение «Казахстанская Ассоциация травматологов-ортопедов» с 9 филиалами в областях и городах РК.</p>
+	<p>  
+	{{ record.text | raw}}
 	
-	<p>
 
-
-<p><a href="http://old.niito.kz/assets/files/1143/ustav.pdf">Устав Республиканского общественного объединения "Казахстанская Ассоциация травматологов-ортопедов"</a></p>
-<p><a href="http://old.niito.kz/assets/images/1144/%D1%81%D0%B2%D0%B8%D0%B4%D0%B5%D1%82_%D0%BE_%D0%B3%D0%BE%D1%81_%D1%80%D0%B5%D0%B3%D0%B8%D1%81%D1%82%D1%80_%D1%80%D1%83%D1%81.jpg">Свидетельство о государственной регистрации</a></p>
 	</p>
 					   
 					    
@@ -46,3 +63,4 @@ is_hidden = 0
 			</div>
 		</div>
 	</section>
+		{% endfor %}
