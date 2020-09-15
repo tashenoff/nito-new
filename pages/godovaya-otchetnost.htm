@@ -2,7 +2,25 @@ title = "Годовая отчетность"
 url = "/godovaya-otchetnost"
 layout = "default"
 is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Finance\Models\Finance"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
 ==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -30,7 +48,11 @@ is_hidden = 0
 					<div class="content">
 					    
 	
+					    {% for record in records %}
 					    
+					    <a href="{{ record.link }}">{{ record.title }}</a>
+					    
+					    {% endfor %}
 					    
 				
 				</div></div></main>
