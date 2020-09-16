@@ -55,7 +55,7 @@ $(document).ready(function() {
         shuffle:"off",
 
         autoHeight:"off",                       
-        forceFullWidth:"off",                       
+        forceFullWidth:"on",                       
 
         hideThumbsOnMobile:"off",
         hideNavDelayOnMobile:1500,                      

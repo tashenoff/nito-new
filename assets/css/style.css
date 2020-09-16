@@ -2433,3 +2433,33 @@ ul.filter li.active a {
 		 -o-transition: all 0.3s;
 			transition: all 0.3s;
 }
+
+
+
+    .block-wrap{
+        
+        padding: 10px;
+        display: flex;
+  
+    }
+.block{
+
+width: 100%;
+height: 100%;
+background-color: #eee;
+height: 200px;
+display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+
+    
+}
+
+.block:hover{
+    background-color: #2e5797;
+    color: #fff;
+    cursor: pointer;
+
+}

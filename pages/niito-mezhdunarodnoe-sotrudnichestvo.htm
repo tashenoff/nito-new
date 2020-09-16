@@ -1,0 +1,89 @@
+title = "НИИТО-международное сотрудничество"
+url = "/niito-mezhdunarodnoe-sotrudnichestvo"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Ms\Models\MS"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+ {% for record in records %}
+<section id="layout-content">
+            <section class="breadcrumb-wrap">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>{{ record.title }}</h1>
+					<ul class="breadcrumb">
+					   
+					   <ul class="breadcrumb"><li><a href="niito/">НИИТО</a></li>
+<li><a href="o-niito/">О НИИТО</a></li>
+<li class="active">{{ record.title }}</li></ul>
+					    
+					    
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="page-contact02">
+		<div class="container">
+			<div class="row">
+				<main class="main-content">
+					<div class="content">
+					    
+		
+
+<p></p><section class="page-contact02">
+		<div class="container">
+			<div class="row">
+				<main class="main-content">
+					<div class="content">
+					    
+		
+
+<p>{{ record.text | raw }}
+
+</p>
+					    
+					 
+                        <br> <br>
+               
+					    
+					</div>
+				</main></div></div>
+			
+		
+	</section>
+	
+	{% endfor %}
+	<p></p>
+					    
+					    
+					 
+                        <br> <br>
+               
+					    
+					</div>
+				</main></div></div>
+			
+		
+	</section>        </section>
