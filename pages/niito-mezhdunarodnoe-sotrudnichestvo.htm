@@ -63,7 +63,24 @@ pageNumber = "{{ :page }}"
 <p>{{ record.text | raw }}
 
 </p>
-					    
+		
+		
+		
+			
+	<p>
+	
+	<ul>
+	
+	{% for links in record.links %}
+	<li>
+	<a href="{{ links.link}}">{{ links.linktitle }}</a>
+	</li>
+	
+	{% endfor %}
+	
+	</ul>
+	</p>
+					   			    
 					 
                         <br> <br>
                
