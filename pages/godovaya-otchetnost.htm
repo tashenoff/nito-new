@@ -47,13 +47,13 @@ pageNumber = "{{ :page }}"
 				<main class="main-content">
 					<div class="content">
 					    
-	
+			    <ul>
 					    {% for record in records %}
-					    
-					    <a href="{{ record.link }}">{{ record.title }}</a>
-					    
+			
+					    <li><a href="{{ record.link }}">{{ record.title }}</a></li>
+					  
 					    {% endfor %}
-					    
+					      </ul>
 				
 				</div></div></main>
 			</div>
