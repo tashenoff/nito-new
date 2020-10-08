@@ -1,10 +1,10 @@
-title = "Библиотека"
-url = "/biblioteka"
+title = "Наука"
+url = "/nauka"
 layout = "default"
 is_hidden = 0
 
 [builderList]
-modelClass = "Alex\Bibkioteka\Models\Biblioteka"
+modelClass = "Alex\Nauka\Models\Nauka"
 scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "text"
@@ -21,6 +21,7 @@ pageNumber = "{{ :page }}"
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
 
+
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
@@ -30,7 +31,7 @@ pageNumber = "{{ :page }}"
 					<ul class="breadcrumb">
 					   
 					   <ul class="breadcrumb"><li><a href="klinika/">Наука и образование</a></li>
-<li><a href="otdelenie-travmatologii-1">Библиотека</a></li>
+<li><a href="otdelenie-travmatologii-1">Наука</a></li>
 </ul>
 					    
 					    
@@ -55,29 +56,9 @@ pageNumber = "{{ :page }}"
 
 							
 					    {% for record in records %}
-					    
-					    	 	
 					    {{ record.text | raw }}
-					    
-				
-				
-				
-				<ul class="icon-list">						
-{% for links in record.links %}
-								<li>
-								<a href="{{ links.link }}">{{ links.link_title }}</a>
-								</li>
-									
-							{% endfor %}
-				</ul>
-					    
-				
-					    
-					  
-					  
 					    {% endfor %}
-					    
-					    
+
 
 
 						</div></article>
