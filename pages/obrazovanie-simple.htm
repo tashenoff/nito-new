@@ -1,0 +1,79 @@
+title = "Образование"
+url = "/obrazovanie-simple/:id"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Alex\Obrazovanie\Models\Obrazovanie"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "text"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+<section class="breadcrumb-wrap">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Наука</h1>
+					<ul class="breadcrumb">
+					   
+					   <ul class="breadcrumb"><li><a href="klinika/">Образование</a></li>
+<li><a href="otdelenie-travmatologii-1">Образование</a></li>
+</ul>
+					    
+					    
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="page-wrap page-service">
+		<div class="container">
+			<div class="row">
+				<main class="main-content col-lg-12">
+					<div class="content">
+						<article>
+						    <div class="clearfix">
+
+
+				{% if record %}
+				{{ record.text | raw}}
+				
+				
+				
+					
+				<ul class="icon-list">						
+{% for links in record.links %}
+								<li>
+								<a href="{{ links.link }}">{{ links.link_title }}</a>
+								</li>
+									
+							{% endfor %}
+				</ul>
+					    
+				
+				
+				{% endif %}
+				
+				
+				
+					    
+					    
+					</div>
+				</main>
+				
+			
+			</div>
+		</div>
+	</section>

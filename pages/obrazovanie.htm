@@ -1,0 +1,91 @@
+title = "Образование"
+url = "/obrazovanie"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Obrazovanie\Models\Obrazovanie"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "obrazovanie-simple"
+detailsKeyColumn = "id"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
+<style>
+a.title_block {color: blue;}
+.block:hover a {
+    color: white!important;}
+</style>
+
+<section class="breadcrumb-wrap">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Наука</h1>
+					<ul class="breadcrumb">
+					   
+					   <ul class="breadcrumb"><li><a href="klinika/">Образование</a></li>
+<li><a href="otdelenie-travmatologii-1">Образование</a></li>
+</ul>
+					    
+					    
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="page-wrap page-service">
+		<div class="container">
+			<div class="row">
+				<main class="main-content col-lg-12">
+					<div class="content">
+						<article>
+						    <div class="clearfix">
+
+
+							
+		
+
+			
+			
+
+    {% for record in records %}
+    <div class="col-lg-4 block-wrap">
+   
+    <a  class="title_block block" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
+                                {{ record.title }}</a>
+    </div>
+       
+			
+			  
+					    {% endfor %}
+					    
+					    
+
+
+						</div></article>
+					</div>
+				</main>
+				
+			
+			</div>
+		</div>
+	</section>
