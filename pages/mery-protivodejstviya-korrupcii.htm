@@ -1,16 +1,15 @@
-title = "Образование"
-url = "/obrazovanie"
+title = "Меры противодействия коррупции"
+url = "/mery-protivodejstviya-korrupcii"
 layout = "default"
 is_hidden = 0
 
 [builderList]
-modelClass = "Alex\Obrazovanie\Models\Obrazovanie"
+modelClass = "Alex\Meri\Models\Meri"
 scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "title"
 noRecordsMessage = "No records found"
-detailsPage = "obrazovanie-simple"
-detailsKeyColumn = "id"
+detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
@@ -23,22 +22,16 @@ pageNumber = "{{ :page }}"
 
 
 
-<style>
-a.title_block {color: blue;}
-.block:hover a {
-    color: white!important;}
-</style>
-
 <section class="breadcrumb-wrap">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h1>Наука</h1>
+					<h1>Меры противодействия коррупции</h1>
 					<ul class="breadcrumb">
 					   
-					   <ul class="breadcrumb"><li><a href="klinika/">Образование</a></li>
-<li><a href="otdelenie-travmatologii-1">Образование</a></li>
+					   <ul class="breadcrumb">
+<li><a href="mery-protivodejstviya-korrupcii">Меры противодействия коррупции</a></li>
 </ul>
 					    
 					    
@@ -62,21 +55,27 @@ a.title_block {color: blue;}
 
 
 							
-		
-
-			
-			
-
-    {% for record in records %}
-    <div class="col-lg-4 block-wrap">
-		
-    <a  style="background-image: url('{{ record.photo.path }}'); background-repeat: no-repeat;
-    background-size: cover;" class="title_block block" href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
-                                {{ record.title }}</a>
-    </div>
-       
-			
-			  
+					    {% for record in records %}
+					    
+					    	 	
+					    {{ record.text | raw }}
+					    
+				
+				
+				
+				<ul class="icon-list">						
+{% for links in record.links %}
+								<li>
+								<a href="{{ links.link }}">{{ links.link_title }}</a>
+								</li>
+									
+							{% endfor %}
+				</ul>
+					    
+				
+					    
+					  
+					  
 					    {% endfor %}
 					    
 					    
