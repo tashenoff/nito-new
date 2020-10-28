@@ -1,0 +1,76 @@
+title = "Пациентам и посетителям - Госпитализация"
+url = "/pacientam-i-posetitelyam-gospitalizaciya/:id"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Alex\Pacientgosp\Models\PacientGosp"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+==
+{% component 'builderDetails' %}
+
+<section class="breadcrumb-wrap">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Наука</h1>
+					<ul class="breadcrumb">
+					   
+					   <ul class="breadcrumb"><li><a href="klinika/">Образование</a></li>
+<li><a href="otdelenie-travmatologii-1">Образование</a></li>
+</ul>
+					    
+					    
+						
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	
+	
+	<section class="page-wrap page-service">
+		<div class="container">
+			<div class="row">
+				<main class="main-content col-lg-12">
+					<div class="content">
+						<article>
+						    <div class="clearfix">
+
+
+				{% if record %}
+				{{ record.text | raw}}
+				
+				
+				
+					
+				<ul class="icon-list">						
+{% for links in record.links %}
+								<li>
+								<a href="{{ links.link }}">{{ links.link_title }}</a>
+								</li>
+									
+							{% endfor %}
+				</ul>
+					    
+				
+				
+				{% endif %}
+				
+				
+				
+					    
+					    
+					</div>
+				</main>
+				
+			
+			</div>
+		</div>
+	</section>

@@ -1,0 +1,72 @@
+title = "Пациентам и посетителям - Служба поддержки пациента и внутреннего контроля"
+url = "/pacientam-i-posetitelyam-sluzhba-podderzhki-pacienta-i-vnutrennego-kontrolya"
+layout = "default"
+is_hidden = 0
+
+[builderList]
+modelClass = "Alex\Pacientsupport\Models\PacientSupport"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+{% set records = builderList.records %}
+{% set displayColumn = builderList.displayColumn %}
+{% set noRecordsMessage = builderList.noRecordsMessage %}
+{% set detailsPage = builderList.detailsPage %}
+{% set detailsKeyColumn = builderList.detailsKeyColumn %}
+{% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+    {% for record in records %}
+<section class="breadcrumb-wrap">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>{{ record.title }}</h1>
+                <ul class="breadcrumb">
+                   
+                   <ul class="breadcrumb"><li><a href="niito/">{{ record.title }}</a></li>
+
+<li class="active">{{ record.title }}</li></ul>
+                    
+                    
+                    
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+
+<p></p><section class="page-contact02">
+    <div class="container">
+        <div class="row">
+            <main class="main-content">
+                <div class="content">
+                    
+{{ record.text | raw }}
+           
+                    
+                </div>
+            </main></div></div>
+        
+    
+</section><p></p>
+                    
+           {% endfor %}         
+                 
+                    <br> <br>
+           
+                    
+                </div>
+            </main></div></div>
+        
+    
+</section>
